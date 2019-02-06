@@ -6,6 +6,9 @@
     "name": "Qasim Soomro"
   },
   "main": "./src",
+  "scripts": {
+    "dev": "nodemon ."
+  },
   "devDependencies": {
     "eslint": "^5.13.0",
     "eslint-config-google": "^0.12.0",

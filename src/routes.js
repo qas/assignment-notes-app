@@ -3,4 +3,4 @@ const routes = [
   require('./notes/routes'),
   require('./spec/routes')];
 
-exports.routes = routes;
+exports.routes = null;

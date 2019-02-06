@@ -1,4 +1,3 @@
-const {config} = require('../config');
 const {AppFactory} = require('../lib/classes/AppFactory');
 const {routes} = require('./routes');
 
@@ -6,13 +5,12 @@ const {routes} = require('./routes');
 const App = AppFactory.getAppInstance('swagger');
 
 /** Configure app */
-App.setPort(config.PORT);
 App.setRoutes(routes);
 
-// /** Start app */
+/** Start app */
 App.initialize();
 
-/** Handle exceptions */
+/** Handle unknown exceptions */
 process.on('unhandledRejection', (err) => {
   App.logger.error(err, {msg: 'unhandledRejection. Process exiting.'});
 });
@@ -23,4 +21,4 @@ process.on('SIGINT', async () => {
 });
 
 /** Expose app */
-module.exports = {App};
+exports.App = App;

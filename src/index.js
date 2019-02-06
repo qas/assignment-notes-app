@@ -1,15 +1,15 @@
-const config = require('../config');
+const {config} = require('../config');
 const {AppFactory} = require('../lib/classes/AppFactory');
-const {router} = require('./router');
+const {routes} = require('./routes');
 
 /** Instances */
 const App = AppFactory.getAppInstance('swagger');
 
 /** Configure app */
-App.setPort(config.app.PORT);
-App.setRoutes(router.routes);
+App.setPort(config.PORT);
+App.setRoutes(routes);
 
-/** Start app */
+// /** Start app */
 App.initialize();
 
 /** Handle exceptions */

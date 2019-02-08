@@ -14,10 +14,7 @@ npm run start ## start normally
 npm run start:analyze ## profiling with visual of flamegraph
 ```
 
-
-Use the [Postman collection](https://github.com/qas/notes-app/blob/master/.postman/postman_collection.json) to quickly start interacting with the RESTful API endpoints.
-
-[Visit the API documentation](https://documenter.getpostman.com/view/462330/RztppnGJ)
+[Check out the API documentation](https://documenter.getpostman.com/view/462330/RztppnGJ)
 
 Tip: Creating a single note using `POST /v1/notes` returns some links which you can use to interact with the newly created note.
 

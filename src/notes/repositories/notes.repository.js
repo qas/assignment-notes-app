@@ -27,7 +27,7 @@ class NotesRepository {
   }
 
   /**
-   * @name find
+   * @name search
    * @param {*} term
    * @return {*}
    */

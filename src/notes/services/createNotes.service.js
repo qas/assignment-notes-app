@@ -8,10 +8,7 @@ const createNotes = (App, {res, body}) => {
   // create multiple notes
   if (Array.isArray(body) && repo.insert(body)) {
     return res.created();
-  }
-
-  // create single note
-  if (!isEmpty(body)) {
+  } else if (!isEmpty(body)) { // create single note
     const doc = repo.insert(body);
 
     if (!isEmpty(doc)) {

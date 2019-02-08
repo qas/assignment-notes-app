@@ -1,16 +1,19 @@
 {
   "name": "notes-app",
-  "description": "Walmart Labs Code Assignment",
+  "description": "A notes application.",
   "version": "0.1.0",
   "author": {
     "name": "Qasim Soomro"
   },
   "main": "./src",
   "scripts": {
-    "dev": "node .",
+    "dev": "nodemon .",
+    "start": "node .",
+    "start:analyze": "0x .",
     "test": "jest --detectOpenHandles --forceExit"
   },
   "devDependencies": {
+    "0x": "^4.7.2",
     "eslint": "^5.13.0",
     "eslint-config-google": "^0.12.0",
     "eslint-plugin-jest": "^22.2.2",

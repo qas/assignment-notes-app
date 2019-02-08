@@ -4,6 +4,6 @@
   "ignore": ["src/**/*.test.js"],
   "exec": "src/index.js",
   "events": {
-    "restart": "osascript -e 'display notification \"application restarted\" with title \"nodemon\"'"
+    "restart": "osascript -e 'display notification \"application restarted\" with title \"Notes App by Qasim Soomro\"'"
   }
 }

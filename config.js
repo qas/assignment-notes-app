@@ -15,10 +15,11 @@ const configs = {
     TITLE: process.env.APP_TITLE || 'Notes',
     DESCRIPTION: process.env.APP_DESCRIPTION || 'Notes Application',
     // API
-    PREFIX: process.env.APP_PREFIX || 'v1',
+    PREFIX: process.env.APP_PREFIX || '/v1',
     VERSION: process.env.APP_VERSION || '1.0',
     API_EXPLORER_PATH: process.env.APP_API_EXPLORER_PATH || '/api',
     // Server
+    PROTOCOL: process.env.APP_PROTOCOL || 'http',
     HOST: process.env.APP_HOST || '0.0.0.0',
     PORT: process.env.APP_PORT || 7070,
     TRUST_PROXY: process.env.APP_TRUST_PROXY || false,

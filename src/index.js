@@ -1,24 +1,41 @@
 const {AppFactory} = require('../lib/classes/AppFactory');
-const {routes} = require('./routes');
+const {metaRoutes} = require('./meta/meta.module');
+const {notesRoutes} = require('./notes/notes.module');
 
 /** Instances */
 const App = AppFactory.getAppInstance('swagger');
 
-/** Configure app */
-App.setRoutes(routes);
+/** Routes */
+const routes = [
+  ...metaRoutes,
+  ...notesRoutes];
 
-/** Start app */
-App.initialize();
+const startApp = async () => {
+  /** Init app */
+  await App.initialize();
 
-/** Handle unknown exceptions */
-process.on('unhandledRejection', (err) => {
-  App.logger.error(err, {msg: 'unhandledRejection. Process exiting.'});
-});
-process.on('SIGINT', async () => {
-  App.logger.error('SIGINT error. Process exiting.');
-  await App.shutdown();
-  process.exit();
-});
+  /** Configure app */
+  App.setRoutes(routes);
 
-/** Expose app */
-exports.App = App;
+  /** Start app */
+  const app = await App.start();
+
+  /** Handle exceptions */
+  process.on('unhandledRejection', (err) => {
+    App.logger.error(err, {msg: 'unhandledRejection. Process exiting.'});
+  });
+  process.on('SIGINT', async () => {
+    App.logger.error('SIGINT error. Process exiting.');
+    await App.shutdown();
+    process.exit();
+  });
+
+  return app;
+};
+
+if (require.main === module) {
+  startApp();
+}
+
+
+exports.startApp = startApp;

@@ -8,5 +8,6 @@
     "ecmaVersion": 9,
     "sourceType": "module"
   },
+  "plugins": ["jest"],
   "rules": {}
 }

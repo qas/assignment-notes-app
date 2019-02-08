@@ -28,9 +28,7 @@
     "koa-router": "^7.4.0",
     "lodash": "^4.17.11",
     "lodash-id": "^0.14.0",
-    "lowdb": "^1.0.0",
-    "swagger-jsdoc": "^3.2.6",
-    "swagger2": "^1.0.4"
+    "lowdb": "^1.0.0"
   },
   "jest": {
     "testEnvironment": "node",

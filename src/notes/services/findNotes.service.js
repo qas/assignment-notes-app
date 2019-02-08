@@ -13,7 +13,7 @@ const findNotes = (App, {res, body, id}) => {
     if (!isEmpty(docs)) {
       return res.ok(docs);
     }
-  } else { // find one or more notes by properties
+  } else { // find by query
     const docs = repo.find(query);
     if (!isEmpty(docs)) {
       return res.ok(docs);

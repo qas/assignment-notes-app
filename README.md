@@ -1,6 +1,8 @@
 # Notes App
 > A RESTFul API server for a simple notes application.
 
+[Click to go to Postman collection](https://github.com/qas/notes-app/blob/master/.postman/postman_collection.json)
+
 ## Installation
 
 ```sh

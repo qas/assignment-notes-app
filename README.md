@@ -1,7 +1,5 @@
 # Notes App
-> A notes application server.
-
-![](header.png)
+> A RESTFul API server for a simple notes application.
 
 ## Installation
 

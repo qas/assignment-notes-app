@@ -39,7 +39,7 @@
 			"response": []
 		},
 		{
-			"name": "GET - /v1/notes -- searches notes",
+			"name": "GET /v1/notes -- searches notes",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},

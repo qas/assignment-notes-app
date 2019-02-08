@@ -1,4 +1,4 @@
-# Notes App
+# Notes App ⚡️
 > A RESTFul API server for a simple notes application.
 
 ## Installation

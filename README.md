@@ -1,8 +1,6 @@
 # Notes App
 > A RESTFul API server for a simple notes application.
 
-[Click to go to Postman collection](https://github.com/qas/notes-app/blob/master/.postman/postman_collection.json)
-
 ## Installation
 
 ```sh
@@ -15,6 +13,11 @@ npm install
 npm run start ## start normally
 npm run start:analyze ## profiling with visual of flamegraph
 ```
+
+
+Use the [Postman collection](https://github.com/qas/notes-app/blob/master/.postman/postman_collection.json) to quickly start interacting with the RESTful API endpoints.
+
+Tip: Creating a single note using `POST /v1/notes` returns some links which you can use to interact with the newly created note.
 
 ## Development setup
 

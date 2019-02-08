@@ -1,7 +1,7 @@
 {
   "watch": ["src"],
   "ext": "js",
-  "ignore": ["src/**/*.test.js"],
+  "ignore": ["src/**/*.spec.js", "test/**/*.test.js"],
   "exec": "src/index.js",
   "events": {
     "restart": "osascript -e 'display notification \"application restarted\" with title \"Notes App by Qasim Soomro\"'"

@@ -18,6 +18,16 @@ route.setController(findNotes);
 routes.push(route);
 
 /**
+ * Find note by ID
+ * @route GET /v1/note/:id
+ */
+route = new Route();
+route.setMethod('GET');
+route.setPath('/notes/:id');
+route.setController(findNotes);
+routes.push(route);
+
+/**
  * Create note(s)
  * @route POST /v1/notes
  */
@@ -33,7 +43,7 @@ routes.push(route);
  */
 route = new Route();
 route.setMethod('PUT');
-route.setPath('/notes');
+route.setPath('/notes/:id');
 route.setController(updateNotes);
 routes.push(route);
 
@@ -44,6 +54,16 @@ routes.push(route);
 route = new Route();
 route.setMethod('DELETE');
 route.setPath('/notes');
+route.setController(deleteNotes);
+routes.push(route);
+
+/**
+ * Delete note by ID
+ * @route DELETE /v1/note/:id
+ */
+route = new Route();
+route.setMethod('DELETE');
+route.setPath('/notes/:id');
 route.setController(deleteNotes);
 routes.push(route);
 

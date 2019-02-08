@@ -1,13 +1,12 @@
 const {isEmpty} = require('../../../lib/utils/utils');
 const {NotesRepository} = require('../repositories/notes.repository');
 
-const deleteNotes = (App, {res, body}) => {
+const deleteNotes = (App, {res, body, id}) => {
   const repo = new NotesRepository(App);
+  const ids = body.ids;
 
-  // delete multiple notes
-  if (Array.isArray(body) && repo.remove(body)) {
-    return res.noContent();
-  } else if (!isEmpty(body) && !isEmpty(repo.remove(body))) {
+  if (!isEmpty(ids) && repo.remove(ids) === true ||
+    !isEmpty(id) && !isEmpty(repo.remove(id))) {
     return res.noContent();
   }
 

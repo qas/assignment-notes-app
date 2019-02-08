@@ -32,7 +32,7 @@ class NotesRepository {
    * @return {*}
    */
   search(term) {
-    return this.collection.value().filter((i) => i.body.includes(term));
+    return this.collection.value().filter((note) => note.body.includes(term));
   }
 
   /**
@@ -44,38 +44,41 @@ class NotesRepository {
     const defaultNote = {createdTimestamp: Date.now()};
 
     if (Array.isArray(notes)) {
+      let insertedOne = false;
       for (const note of notes) {
-        this.collection.insert({...note, ...defaultNote});
+        const doc = this.collection.insert({...note, ...defaultNote}).write();
+        if (!insertedOne && !isEmpty(doc)) insertedOne = true;
       }
-      return true;
+      return insertedOne;
     } else {
       return this.collection.insert({...notes, ...defaultNote}).write();
     }
   }
 
   /**
-   * @name update
-   * @param {*} query
-   * @param {*} changes
+   * @name updateOne
+   * @param {*} note
    * @return {*}
    */
-  update(query, changes) {
-    return this.collection.find(query).assign(changes).write();
+  updateOne({id, body}) {
+    return this.collection.find({id}).assign({body}).write();
   }
 
   /**
    * @name remove
-   * @param {*} notes
+   * @param {*} payload
    * @return {*}
    */
-  remove(notes) {
-    if (Array.isArray(notes)) {
-      for (const note of notes) {
-        this.collection.remove(note).write();
+  remove(payload) {
+    if (Array.isArray(payload)) {
+      let removedOne = false;
+      for (const id of payload) {
+        const doc = this.collection.remove({id}).write();
+        if (!removedOne && !isEmpty(doc)) removedOne = true;
       }
-      return true;
+      return removedOne;
     } else {
-      this.collection.remove(notes).write();
+      return this.collection.remove({id: payload}).write();
     }
   }
 }

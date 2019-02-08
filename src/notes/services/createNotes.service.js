@@ -4,12 +4,13 @@ const {NotesRepository} = require('../repositories/notes.repository');
 
 const createNotes = (App, {res, body}) => {
   const repo = new NotesRepository(App);
+  const notes = body;
 
   // create multiple notes
-  if (Array.isArray(body) && repo.insert(body)) {
+  if (Array.isArray(notes) && repo.insert(notes)) {
     return res.created();
-  } else if (!isEmpty(body)) { // create single note
-    const doc = repo.insert(body);
+  } else if (!isEmpty(notes)) { // create single note
+    const doc = repo.insert(notes);
 
     if (!isEmpty(doc)) {
       const docSelfEndpoint =
